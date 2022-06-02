@@ -26,7 +26,7 @@ pipeline {
         }
         stage("Step 2 - Git") {
             steps {
-                println('testing the applicatiojn...')
+                println('testing the application...')
                 
                 }
             }
