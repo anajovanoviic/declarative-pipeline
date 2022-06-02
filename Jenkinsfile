@@ -17,7 +17,7 @@ pipeline {
                 println('Hello ${params.PERSON}')
                 
                 script{
-                if(${params.TOGGLE}){
+                if(params.TOGGLE){
                     echo "Status je true"
                 } else {
                     echo "Status je false"
