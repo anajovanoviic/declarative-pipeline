@@ -39,7 +39,7 @@ pipeline {
     
 }{
                 echo "Cloning the Repository..."
-            git 'https://github.com/Fireplusplus/Project'
+            git 'https://github.com/ravdy/hello-world.git'
         }
         }
     }
