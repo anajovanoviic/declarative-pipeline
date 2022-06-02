@@ -1,37 +1,36 @@
 pipeline {
-
     agent any
-    parameters {
-        string(name: 'PERSON', defaultValue: 'Ana', description: 'Upisi ime')
-
-        
-
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-    }
-    
     stages {
-        stage("Step 1") {
+        stage('Setup parameters') {
             steps {
-                println('Hello params.PERSON')
-                script{
-                if(${params.TOGGLE}){
-                    echo "Status je true"
-                } else {
-                    echo "Status je false"
+                script { 
+                    properties([
+                        parameters([
+                            choice(
+                                choices: ['ONE', 'TWO'], 
+                                name: 'PARAMETER_01'
+                            ),
+                            booleanParam(
+                                defaultValue: true, 
+                                description: '', 
+                                name: 'BOOLEAN'
+                            ),
+                            text(
+                                defaultValue: '''
+                                this is a multi-line 
+                                string parameter example
+                                ''', 
+                                 name: 'MULTI-LINE-STRING'
+                            ),
+                            string(
+                                defaultValue: 'scriptcrunch', 
+                                name: 'STRING-PARAMETER', 
+                                trim: true
+                            )
+                        ])
+                    ])
                 }
             }
-            }
         }
-        stage("Step 2 - Git") {
-            steps {
-                println('testing the application...')
-                
-                }
-            }
-        }
-        
     }   
-
-
+}
