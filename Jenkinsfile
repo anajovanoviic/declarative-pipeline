@@ -15,11 +15,13 @@ pipeline {
         stage("Step 1") {
             steps {
                 println('Hello ${params.PERSON}')
-                if(params.TOGGLE){
+                script{
+                if(${params.TOGGLE}){
                     echo "Status je true"
                 } else {
                     echo "Status je false"
                 }
+            }
             }
         }
         stage("Step 2 - Git") {
