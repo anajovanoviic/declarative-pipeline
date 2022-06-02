@@ -30,10 +30,11 @@ pipeline {
             }
         }
 
-         stage("Stage 2"){
+ stage("Stage 2"){
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'git_credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
+                    withCredentials([usernamePassword(credentialsId: '133b314d-d52d-4c4f-ae2f-03a051fed5a4', passwordVariable: 'password', usernameVariable: 'username')]) {
+    
 }{
                 echo "Cloning the Repository..."
             git 'https://github.com/Fireplusplus/Project'
