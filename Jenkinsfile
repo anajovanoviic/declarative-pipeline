@@ -25,8 +25,20 @@ pipeline {
                 }
 
                 println("Hello ${params.PARAMETER_01}")
+
                 println("Hello world")
             }
         }
+
+        stage("Stage 2"){
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'password', usernameVariable: 'username')]){
+                echo "Cloning the Repository..."
+            git 'https://github.com/Fireplusplus/Project'
+        }
+        }
+    }
+}
     }   
 }
