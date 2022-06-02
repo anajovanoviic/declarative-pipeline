@@ -30,19 +30,6 @@ pipeline {
             }
         }
 
-    stage("Stage 2"){
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: '133b314d-d52d-4c4f-ae2f-03a051fed5a4', passwordVariable: 'password', usernameVariable: 'aefintracker')]) {
-    // some block
-} {
-    
-}{
-                echo "Cloning the Repository..."
-            git 'https://github.com/ravdy/hello-world.git'
-        }
-        }
-    }
-}
+
     }   
 }
