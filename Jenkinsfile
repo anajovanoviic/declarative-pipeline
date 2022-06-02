@@ -15,7 +15,7 @@ pipeline {
         stage("Step 1") {
             steps {
                 println('Hello ${params.PERSON}')
-                if(${params.TOGGLE}){
+                if(params.TOGGLE){
                     echo "Status je true"
                 } else {
                     echo "Status je false"
