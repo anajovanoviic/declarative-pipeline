@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage("Step 1") {
             steps {
-                println('Hello ${params.PERSON}')
+                println("Hello ${params.PERSON}")
                 
                 script{
                 if(params.TOGGLE){
