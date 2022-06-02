@@ -24,6 +24,7 @@ pipeline {
                     ])
                 }
 
+                println("Hello ${params.PARAMETER_01}")
                 println("Hello world")
             }
         }
