@@ -1,22 +1,33 @@
 pipeline {
 
     agent any
-    stages {
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Ana', description: 'Upisi ime')
 
-        stage("Stage 1"){
+        
 
-        steps {
-        script {
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
-            echo "Hello ${params.name}"
-            if (params.office) {
-            echo "Hey ${params.name} have fun at the office!"
-        } else {
-            echo "Why are you not in the office ${params.name} ?"
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
-    echo "${params.name} you are ${params.age} years old."
+    
+    stages {
+        stage("Step 1") {
+            steps {
+                println('Hello ${params.PERSON}')
+                if(${params.TOGGLE}){
+                    echo "Status je true"
+                } else {
+                    echo "Status je false"
                 }
             }
         }
-    }
-}
+        stage("Step 2 - Git") {
+            steps {
+                println('testing the applicatiojn...')
+                
+                }
+            }
+        }
+        
+    }   
